@@ -10,11 +10,11 @@ void ui::init()
 	if (!glfwInit())
 		return;
 
-	const char* glsl_version = "#version 130";
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+	const char* glsl_version = "#version 430";
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 
-	window = glfwCreateWindow(1280, 720, "Dear ImGui GLFW+OpenGL3 example", NULL, NULL);
+	window = glfwCreateWindow(1280, 720, "PBR_Render", NULL, NULL);
 	if (window == NULL)
 		return;
 	glfwMakeContextCurrent(window);

@@ -1,7 +1,15 @@
 #include "triangle.h"
 
-triangle::triangle():shader("shader/tran.vs", "shader/tran.fs")
+float triangle::vertices[18] = {
+	// positions         // colors
+	 0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom right
+	-0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom left
+	 0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // top 
+};
+
+triangle::triangle()
 {
+	mat.reset(new mBasic());
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
 	// bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
@@ -21,7 +29,7 @@ triangle::triangle():shader("shader/tran.vs", "shader/tran.fs")
 void triangle::draw()
 {
 	// Draw
-	shader.use();
+	mat->apply();
 	glBindVertexArray(VAO);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 }

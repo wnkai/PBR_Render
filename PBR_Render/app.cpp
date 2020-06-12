@@ -10,7 +10,6 @@ int main(int, char**)
 	// set up vertex data (and buffer(s)) and configure vertex attributes
 	// ------------------------------------------------------------------
 	triangle tr;
-
 	while(!glfwWindowShouldClose(myui.getWindow()))
 	{
 		glfwPollEvents();

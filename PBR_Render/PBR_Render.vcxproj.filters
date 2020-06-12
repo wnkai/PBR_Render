@@ -22,6 +22,18 @@
     <Filter Include="Header Files\drawable">
       <UniqueIdentifier>{69c2355c-195b-48d0-8a8d-2064e6f57fdc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\material">
+      <UniqueIdentifier>{37539689-a360-427f-9e21-d1d909dc5f1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shader">
+      <UniqueIdentifier>{87da69ed-245d-4424-9e45-220073cff38e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\material">
+      <UniqueIdentifier>{d1d02e3b-ad50-49e2-8a22-6348854a0b9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\shader">
+      <UniqueIdentifier>{5b2e917e-fd60-4e9e-82c7-0ce610d336ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="app.cpp">
@@ -39,12 +51,39 @@
     <ClCompile Include="drawable\triangle.cpp">
       <Filter>Source Files\drawable</Filter>
     </ClCompile>
+    <ClCompile Include="material\material.cpp">
+      <Filter>Source Files\material</Filter>
+    </ClCompile>
+    <ClCompile Include="material\mBasic.cpp">
+      <Filter>Source Files\material</Filter>
+    </ClCompile>
+    <ClCompile Include="drawable\drawable.cpp">
+      <Filter>Source Files\drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="shader\sBasic.cpp">
+      <Filter>Source Files\shader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="drawable\triangle.h">
+      <Filter>Header Files\drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="material\material.h">
+      <Filter>Header Files\material</Filter>
+    </ClInclude>
+    <ClInclude Include="material\mBasic.h">
+      <Filter>Header Files\material</Filter>
+    </ClInclude>
+    <ClInclude Include="shader\sBasic.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="shader\shader.h">
+      <Filter>Header Files\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="drawable\drawable.h">
       <Filter>Header Files\drawable</Filter>
     </ClInclude>
   </ItemGroup>
