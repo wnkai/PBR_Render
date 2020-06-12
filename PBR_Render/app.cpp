@@ -1,15 +1,20 @@
 #include"ui.h"
 #include"drawable/triangle.h"
+#include"drawable/sky.h"
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
 
 int main(int, char**)
 {
 	ui myui;
+	Camera camera(glm::vec3(0.0f, 0.0f, 2.0f));
 	
 	myui.init();
 	
 	// set up vertex data (and buffer(s)) and configure vertex attributes
 	// ------------------------------------------------------------------
 	triangle tr;
+	sky sk;
 	while(!glfwWindowShouldClose(myui.getWindow()))
 	{
 		glfwPollEvents();
@@ -18,7 +23,7 @@ int main(int, char**)
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
-		myui.set();
+		myui.set(camera);
 
 		// Rendering
 		ImGui::Render();
@@ -29,11 +34,14 @@ int main(int, char**)
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		// Our draw
-		tr.draw();
+		sk.draw(camera);
+		tr.draw(camera);
 		myui.draw();
 		//------------
 		
 		glfwSwapBuffers(myui.getWindow());
+
+		camera.updateCameraVectors();
 	}
 	
 	myui.end();

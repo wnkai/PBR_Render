@@ -6,9 +6,10 @@ class triangle:
 	public drawable
 {
 private:
-	static float vertices[18];
+	static float vertices[];
+	static GLuint indices[];
 public:
 	triangle();
-	virtual void draw() override;
+	virtual void draw(const Camera& cm) const override;
 };
 

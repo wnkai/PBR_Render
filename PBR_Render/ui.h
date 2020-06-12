@@ -8,6 +8,7 @@
 #include <GLFW/glfw3.h>
 
 #include <shader.h>
+#include "camera.h"
 
 static void glfw_error_callback(int error, const char* description)
 {
@@ -23,7 +24,7 @@ private:
 public:
 	ui();
 	void init();
-	void set();
+	void set(Camera& cm);
 	void end();
 	void draw();
 	inline GLFWwindow* getWindow() {

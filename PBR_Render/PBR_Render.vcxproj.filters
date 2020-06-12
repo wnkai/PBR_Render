@@ -63,6 +63,15 @@
     <ClCompile Include="shader\sBasic.cpp">
       <Filter>Source Files\shader</Filter>
     </ClCompile>
+    <ClCompile Include="drawable\sky.cpp">
+      <Filter>Source Files\drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="material\mSky.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shader\sSky.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ui.h">
@@ -85,6 +94,18 @@
     </ClInclude>
     <ClInclude Include="drawable\drawable.h">
       <Filter>Header Files\drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="drawable\sky.h">
+      <Filter>Header Files\drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="material\mSky.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shader\sSky.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
