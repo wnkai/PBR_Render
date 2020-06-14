@@ -10,7 +10,8 @@ int main(int, char**)
 	Camera camera(glm::vec3(0.0f, 0.0f, 2.0f));
 	
 	myui.init();
-	
+	glEnable(GL_DEPTH_TEST);
+
 	// set up vertex data (and buffer(s)) and configure vertex attributes
 	// ------------------------------------------------------------------
 	triangle tr;
@@ -18,6 +19,7 @@ int main(int, char**)
 	while(!glfwWindowShouldClose(myui.getWindow()))
 	{
 		glfwPollEvents();
+		myui.process(camera);
 
 		// Start the Dear ImGui frame
 		ImGui_ImplOpenGL3_NewFrame();
@@ -30,8 +32,7 @@ int main(int, char**)
 		int display_w, display_h;
 		glfwGetFramebufferSize(myui.getWindow(), &display_w, &display_h);
 		glViewport(0, 0, display_w, display_h);
-		glClearColor(myui.getColor().x, myui.getColor().y, myui.getColor().z, myui.getColor().w);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// Our draw
 		sk.draw(camera);
@@ -40,7 +41,9 @@ int main(int, char**)
 		//------------
 		
 		glfwSwapBuffers(myui.getWindow());
+		
 
+		
 		camera.updateCameraVectors();
 	}
 	

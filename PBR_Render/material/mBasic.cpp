@@ -27,7 +27,7 @@ void mBasic::apply(const Camera& cm)
 
 	auto model = glm::mat4(1.0);
 	auto view = cm.GetViewMatrix();
-	auto projection = glm::perspective(glm::radians(75.0f), 1280.0f / 720.0f, 0.1f, 100.0f);
+	auto projection = glm::perspective(glm::radians(75.0f), 1280.0f / 720.0f, 0.1f, 1000.0f);
 
 	glBindTexture(GL_TEXTURE_2D, albedoMap);
 	sBasic::apply(model, view, projection);

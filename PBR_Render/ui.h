@@ -21,10 +21,13 @@ private:
 	GLFWwindow* window;
 	ImVec4 clear_color;
 	bool show_demo_window;
+	bool canMouseRotate;
+	bool show_bout_window;
 public:
 	ui();
 	void init();
 	void set(Camera& cm);
+	void process(Camera& cm);
 	void end();
 	void draw();
 	inline GLFWwindow* getWindow() {

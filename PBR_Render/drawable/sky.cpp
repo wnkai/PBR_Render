@@ -62,12 +62,12 @@ sky::sky()
 
 void sky::draw(const Camera & cm) const
 {
-	glDepthFunc(GL_LEQUAL);
+	glDepthMask(GL_FALSE);
 	mat->apply(cm);
 	glBindVertexArray(VAO);
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 	glBindVertexArray(0);
-	glDepthFunc(GL_LESS);
+	glDepthMask(GL_TRUE);
 }
 
 

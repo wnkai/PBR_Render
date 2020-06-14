@@ -14,7 +14,7 @@ void ui::init()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 
-	window = glfwCreateWindow(1280, 720, "PBR_Render", NULL, NULL);
+	window = glfwCreateWindow(1920, 1080, "PBR_Render", NULL, NULL);
 	if (window == NULL)
 		return;
 	glfwMakeContextCurrent(window);
@@ -49,36 +49,107 @@ void ui::init()
 void ui::set(Camera& cm)
 {
 	
+	ImGui::BeginMainMenuBar();
+
+	if (ImGui::BeginMenu("File"))
+	{
+		ImGui::MenuItem("Open");
+		ImGui::MenuItem("Save");
+		if (ImGui::MenuItem("Exit"))
+		{
+			exit(0);
+		}
+		ImGui::EndMenu();
+	}
+
+	if (ImGui::BeginMenu("Edit"))
+	{
+		ImGui::MenuItem("Copy");
+		ImGui::EndMenu();
+	}
+
+	if (ImGui::BeginMenu("Help"))
+	{
+		if (ImGui::MenuItem("About"))
+		{
+			show_bout_window = !show_bout_window;
+		}
+		ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
+		ImGui::EndMenu();
+	}
+
+	ImGui::EndMainMenuBar();
 
 	// 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
 	if (show_demo_window)
 		ImGui::ShowDemoWindow(&show_demo_window);
 
-	// 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
+	if (show_bout_window)
 	{
-		static float f = 0.0f;
-		static int counter = 0;
-
-		ImGui::Begin("Camera");                          // Create a window called "Hello, world!" and append into it.
-
-		ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
-		ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
-
-		ImGui::SliderFloat("Pitch", (float*)&cm.Pitch, -89.0f, 89.0f);
-		ImGui::SliderFloat("Yaw", (float*)&cm.Yaw, -180.0f, 180.0f);
-
-		// Edit 1 float using a slider from 0.0f to 1.0f
-		ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
-
-		if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
-			counter++;
-		ImGui::SameLine();
-		ImGui::Text("counter = %d", counter);
-
-		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+		ImGui::Begin("About");
+		ImGui::Text("A PBR Render Demo");
 		ImGui::End();
 	}
 
+	// 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
+	{
+		static float f = 0.0f;
+
+		ImGui::Begin("Camera");   
+		// Create a window called "Hello, world!" and append into it.
+		ImGui::Checkbox("Can Mouse Rotate", &canMouseRotate);      // Edit bools storing our window open/close state
+
+		ImGui::SliderFloat("Pitch", (float*)&cm.Pitch, -89.0f, 89.0f);
+		ImGui::SliderFloat("Yaw", (float*)&cm.Yaw, -180.0f, 180.0f);
+		ImGui::DragFloat3("Position", (float*)&cm.Position);
+
+
+		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+		//ImGui::e
+		
+		ImGui::End();
+	}
+
+}
+
+void ui::process(Camera & cm)
+{
+	static double lastTime = glfwGetTime();
+	double currentTime = glfwGetTime();
+	float deltaTime = float(currentTime - lastTime);
+
+	// Get mouse position
+	
+	if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS)
+	{
+		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		cm.ProcessMouseMovement(ImGui::GetIO().MouseDelta.x,-ImGui::GetIO().MouseDelta.y);
+	}
+	else
+	{
+		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+	{
+		cm.ProcessKeyboard(FORWARD, deltaTime);
+	}
+	// Move backward
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+	{
+		cm.ProcessKeyboard(BACKWARD, deltaTime);
+	}
+	// Strafe left
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+	{
+		cm.ProcessKeyboard(LEFT, deltaTime);
+	}
+	// Strafe right
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+	{
+		cm.ProcessKeyboard(RIGHT, deltaTime);
+	}
+	
 }
 
 void ui::end()

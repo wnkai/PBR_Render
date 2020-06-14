@@ -19,7 +19,7 @@ mSky::mSky()
 void mSky::apply(const Camera & cm)
 {
 	auto view = glm::mat4(glm::mat3(cm.GetViewMatrix()));
-	auto projection = glm::perspective(glm::radians(75.0f), 1280.0f / 720.0f, 0.1f, 100.0f);
+	auto projection = glm::perspective(glm::radians(75.0f), 1280.0f / 720.0f, 0.1f, 10000.0f);
 
 	glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
 	sSky::apply(view, projection);
