@@ -1,8 +1,10 @@
 #include"ui.h"
 #include"drawable/triangle.h"
 #include"drawable/sky.h"
+#include "drawable/Model.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
+
 
 int main(int, char**)
 {
@@ -16,6 +18,8 @@ int main(int, char**)
 	// ------------------------------------------------------------------
 	triangle tr;
 	sky sk;
+	Model mod(string("resources/model/nanosuit/nanosuit.obj"));
+
 	while(!glfwWindowShouldClose(myui.getWindow()))
 	{
 		glfwPollEvents();
@@ -37,6 +41,7 @@ int main(int, char**)
 		// Our draw
 		sk.draw(camera);
 		tr.draw(camera);
+		mod.draw(camera);
 		myui.draw();
 		//------------
 		

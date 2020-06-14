@@ -127,27 +127,33 @@
   <ItemGroup>
     <ClCompile Include="app.cpp" />
     <ClCompile Include="drawable\drawable.cpp" />
+    <ClCompile Include="drawable\Model.cpp" />
     <ClCompile Include="drawable\sky.cpp" />
     <ClCompile Include="drawable\triangle.cpp" />
     <ClCompile Include="imgui\imgui_impl_glfw.cpp" />
     <ClCompile Include="imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="material\material.cpp" />
     <ClCompile Include="material\mBasic.cpp" />
+    <ClCompile Include="material\mPBR.cpp" />
     <ClCompile Include="material\mSky.cpp" />
     <ClCompile Include="shader\sBasic.cpp" />
+    <ClCompile Include="shader\sPBR.cpp" />
     <ClCompile Include="shader\sSky.cpp" />
     <ClCompile Include="ui.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
     <ClInclude Include="drawable\drawable.h" />
+    <ClInclude Include="drawable\Model.h" />
     <ClInclude Include="drawable\sky.h" />
     <ClInclude Include="drawable\triangle.h" />
     <ClInclude Include="material\material.h" />
     <ClInclude Include="material\mBasic.h" />
+    <ClInclude Include="material\mPBR.h" />
     <ClInclude Include="material\mSky.h" />
     <ClInclude Include="shader\sBasic.h" />
     <ClInclude Include="shader\shader.h" />
+    <ClInclude Include="shader\sPBR.h" />
     <ClInclude Include="shader\sSky.h" />
     <ClInclude Include="ui.h" />
   </ItemGroup>

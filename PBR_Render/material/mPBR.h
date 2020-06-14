@@ -1,15 +1,14 @@
 #pragma once
 #include "material.h"
-#include "sBasic.h"
+#include "sPBR.h"
 #include <stb_image.h>
-
-class mBasic :
+class mPBR :
 	public material
 {
 public:
-	mBasic();
+	mPBR();
 	virtual void apply(const Camera& cm) override;
 private:
-	GLuint albedoMap;
+
 };
 

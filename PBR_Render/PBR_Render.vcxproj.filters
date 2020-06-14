@@ -66,11 +66,20 @@
     <ClCompile Include="drawable\sky.cpp">
       <Filter>Source Files\drawable</Filter>
     </ClCompile>
-    <ClCompile Include="material\mSky.cpp">
+    <ClCompile Include="drawable\Model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="material\mPBR.cpp">
+      <Filter>Source Files\material</Filter>
+    </ClCompile>
+    <ClCompile Include="material\mSky.cpp">
+      <Filter>Source Files\material</Filter>
+    </ClCompile>
+    <ClCompile Include="shader\sPBR.cpp">
+      <Filter>Source Files\shader</Filter>
+    </ClCompile>
     <ClCompile Include="shader\sSky.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\shader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +114,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="shader\sSky.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="drawable\Model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="material\mPBR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shader\sPBR.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
