@@ -37,7 +37,7 @@ public:
 		return *s_instance;
 	};
 
-protected:
+public:
 	unsigned int ID;
 	// constructor generates the shader on the fly
 	// ------------------------------------------------------------------------

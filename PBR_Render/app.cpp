@@ -41,6 +41,7 @@ int main(int, char**)
 		// Our draw
 		sk.draw(camera);
 		tr.draw(camera);
+		sPBR::GetInstance().setVec3("viewPos", camera.Position);
 		mod.draw(camera);
 		myui.draw();
 		//------------

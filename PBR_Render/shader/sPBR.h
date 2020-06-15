@@ -11,13 +11,16 @@ public:
 		GetInstance().setMat4("view", view);
 		GetInstance().setMat4("projection", projection);
 		GetInstance().setInt("albedoMap", 0);
+
+		GetInstance().setVec3("lightPos", glm::vec3(2, 2, 2));
+		GetInstance().setVec3("lightColor", glm::vec3(1, 1, 1));
 	}
 	static GLuint getID()
 	{
 		return GetInstance().ID;
 	}
 private:
-	sPBR() :Shader("shader/tran.vs", "shader/tran.fs")
+	sPBR() :Shader("shader/pbr.vs", "shader/pbr.fs")
 	{};
 	~sPBR() {};
 
